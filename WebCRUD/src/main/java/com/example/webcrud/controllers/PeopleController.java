@@ -50,4 +50,24 @@ public class PeopleController {
         model.addAttribute("person",personDao.show(id));
         return "people/edit";
     }
+
+    @PostMapping("/{id}/update")
+    public String update(@ModelAttribute("person") Person person, @PathVariable("id") int id) {
+        personDao.update(id, person);
+        return "redirect:/people";
+    }
+
+    @GetMapping("delete/{id}")
+    public String delete(@PathVariable("id") int id) {
+        personDao.delete(id);
+        return "redirect:/people";
+    }
+
+
+
+//    @PostMapping("/user-update")
+//    public String updateUser(User user){
+//        userService.saveUser(user);
+//        return "redirect:/users";
+//    }
 }
