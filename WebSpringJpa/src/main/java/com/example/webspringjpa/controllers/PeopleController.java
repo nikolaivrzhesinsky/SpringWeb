@@ -1,8 +1,9 @@
-package com.example.webcrud.controllers;
+package com.example.webspringjpa.controllers;
 
 
-import com.example.webcrud.dao.PersonDao;
-import com.example.webcrud.models.Person;
+import com.example.webspringjpa.dao.PersonDao;
+import com.example.webspringjpa.model.Person;
+import com.example.webspringjpa.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,7 @@ public class PeopleController {
 
     @GetMapping()
     public String index(Model model){
-        model.addAttribute("people",personDao.index());
+        model.addAttribute("people",personDao.findAll());
         return "people/index";
     }
 

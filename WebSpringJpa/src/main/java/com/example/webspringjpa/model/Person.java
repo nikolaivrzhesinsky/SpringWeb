@@ -1,15 +1,22 @@
-package com.example.webcrud.models;
+package com.example.webspringjpa.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 
-
+@Entity
 public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotEmpty(message = "Name input field is empty")
@@ -21,21 +28,13 @@ public class Person {
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
 
-    public Person(int id, String name, String email, int age) {
-        this.id = id;
+    public Person( String name, String email, int age) {
         this.name = name;
         this.email= email;
         this.age= age;
     }
     public Person(){}
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
