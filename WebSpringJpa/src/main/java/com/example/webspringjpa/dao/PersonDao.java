@@ -6,18 +6,18 @@ import com.example.webspringjpa.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class PersonDao {
-
     @Autowired
     PersonRepository personRepository;
 
     public List<Person> findAll() {
         List<Person> people = new ArrayList<>();
+        people=personRepository.findAll();
+        return people;
 
     }
 
