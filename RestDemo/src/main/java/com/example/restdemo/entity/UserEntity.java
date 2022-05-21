@@ -18,6 +18,8 @@ public class UserEntity {
     @Column(name ="password")
     private String password;
 
+    public UserEntity(){}
+
     public int getId() {
         return id;
     }
@@ -53,5 +55,14 @@ public class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, username, password);
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
